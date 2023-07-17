@@ -1,0 +1,124 @@
+.container {
+    display: grid;
+    width: 70vw;
+    max-width: 375px;
+    margin: auto;
+    grid-template-columns: 1fr;
+    box-sizing: border-box;
+}
+
+.container figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container figure img {
+    width: 100%;
+}
+
+.container figure figcaption {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+@media screen and (min-width: 650px) {
+    .jump:focus {
+        top: 0
+    }
+    .container {
+        max-width: none;
+        width: 95vw;
+        background-image: url("../images/concrete_seamless.png");
+        grid-template-columns: repeat(3, 25%);
+        justify-content: space-around;
+    }
+    .container figure:nth-child(2n - 1) {
+        grid-column: 1 / span 2;
+    }
+    .container figure:nth-child(2n) {
+        grid-column: 2 / span 2;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .container {
+        grid-template-columns: repeat(4, 20%);
+        justify-content: space-between;
+    }
+    .container figure:nth-child(2n - 1) {
+        grid-column: 1 / span 2;
+    }
+    .container figure:nth-child(2n) {
+        grid-column: 3 / span 2;
+    }
+    .container figure:last-child {
+        grid-column-start: 2;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .container figure {
+        width: 20%;
+    }
+    .container figure:nth-child(4n) {
+        width: 40%;
+        border: 10px solid;
+    }
+    .container figure:nth-child(2) {
+        order: 1;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        overflow: hidden;
+    }
+    .container figure,
+    .container figure:nth-child(4n) {
+        width: 75%;
+        margin-bottom: 20px;
+    }
+    .container figure:nth-child(2) {
+        order: 0;
+    }
+    .container figure:nth-child(2n - 1) {
+        grid-column: 1 / span 1;
+        transform: rotate(-15deg);
+    }
+    .container figure:nth-child(2n) {
+        grid-column: 2 / span 1;
+        transform: rotate(15deg);
+    }
+    .container figure:last-child {
+        grid-column: 1 / span 2;
+        transform: none;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+header img:first-of-type {
+    animation: fade-in 10s linear;
+}
+
+@media (prefers-reduced-motion) {
+    header img:first-of-type {
+        animation: none;
+    }
+}
